@@ -9,18 +9,18 @@
     </style>
   </head>
 <body>
-   <div class="container" ng-controller="LunchCheckController">
+   <div class="container" ng-controller="LunchCheckController as checker">
      <h1>Lunch Checker</h1>
 
          <div class="form-group">
-             <input id="lunch-menu" type="text" ng-model="lunchMenu"
+             <input id="lunch-menu" type="text" ng-model="checker.lunchMenu"
              placeholder="list comma separated dishes you usually have for lunch"
              class="form-control">
          </div>
          <div class="form-group">
-             <button class="btn btn-default" ng-click="performCheck()">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="checker.performCheck()">Check If Too Much</button>
          </div>
-         <div class="form-group message" ng-bind="message">
+         <div class="form-group message" ng-bind="checker.message">
            <!-- Your message can go here. -->
          </div>
    </div>

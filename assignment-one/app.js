@@ -1,23 +1,26 @@
 (function () {
   'use strict';
 
-  angular.module('LunchCheck', []).controller('LunchCheckController', ['$scope', function($scope) {
-    $scope.lunchMenu = "";
-    $scope.message = "";
+  angular.module('LunchCheck', []).controller('LunchCheckController', LunchCheckController);
 
-    $scope.performCheck = function() {
-      if (!$scope.lunchMenu || $scope.lunchMenu.trim() === "") {
-        $scope.message = 'Please enter data first';
+  function LunchCheckController() {
+    var vm = this;
+    vm.lunchMenu = "";
+    vm.message = "";
+
+    vm.performCheck = function() {
+      if (!vm.lunchMenu || vm.lunchMenu.trim() === "") {
+        vm.message = 'Please enter data first';
         return;
       }
 
-      var items = $scope.lunchMenu.split(',');
+      var items = vm.lunchMenu.split(',');
       if (items.length <= 3) {
-        $scope.message = "Enjoy!";
+        vm.message = "Enjoy!";
       } else {
-        $scope.message = "Too much!";
+        vm.message = "Too much!";
       }
-    };
-  }]);
+    }
+  }
 
 })();
